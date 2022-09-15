@@ -8,9 +8,14 @@
 */
 use std::io;
 use std::io::prelude::*;
+use std::io::{BufRead};
 
 fn main() {
+	// initialize some useful variables!
 	let mut amount_of_numbers = String::new();
+	let mut List : Vec<i32> = vec![];
+	let mut total_sum = 0;
+	let mut counter = 0;
 
     eprintln!("Hur många tal?"); // remove later for faster runtime
 	io::stdin()
@@ -23,7 +28,31 @@ fn main() {
 	.expect(""); 
 	let mut amount_to_add = (amount_of_numbers + 1)/2; // integer divison baby!
 
-	eprintln!("Du vill ha: {}", amount_of_numbers); // same as above comment
-	eprintln!("Antalet tal som kommer adderas är: {}", amount_to_add);
+//	eprintln!("Du vill ha: {}", amount_of_numbers); // same as above comment
+//	eprintln!("Antalet tal som kommer adderas är: {}", amount_to_add);
+	
+	let Numbers = io::stdin();
+	for line in Numbers.lock().lines().map(|l| l.unwrap()) {
+		total_sum = 0;
+		counter = 0;
+        let mut List: Vec<i32> = line.split_whitespace()
+            .map(|num| num.parse().unwrap())
+            .collect();
+			List.sort_by(|a, b| b.cmp(a))
+			;
+			for Number in List {
+				if(counter) < amount_to_add {
+					counter += 1;
+					total_sum += Number;
+			//		eprintln!("{}", total_sum);
+				}
+				else {
+					println!("{}", total_sum);
+					break;
+				}
+			}
+	}		
+	
+
 
 }
