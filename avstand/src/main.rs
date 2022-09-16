@@ -14,7 +14,7 @@ fn main() {
     // initialize some useful variables!
     let mut width: i16 = 14;
     let mut height: i16 = 17;
-    let mut x: i16 = 4;
+    let mut x: i16 = 1;
     let mut y: i16 = 1;
     let mut x_distance: i16 = 1;
     let mut y_distance: i16 = 1;
@@ -48,6 +48,7 @@ for line in input.lock().lines().map(|l| l.unwrap()) {
     else {
         // width is odd!
         x_middle = width / 2 + 1;
+        x_is_even = false;
     }
 
     if let 0 = height % 2 {
@@ -58,6 +59,7 @@ for line in input.lock().lines().map(|l| l.unwrap()) {
     else {
         // height is odd!
         y_middle = height / 2 + 1;
+        y_is_even = false;
     }
 
 
