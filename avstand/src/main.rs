@@ -11,8 +11,8 @@ use std::cmp;
 
 fn main() {
     // initialize some useful variables!
-    let mut width: i16 = 14;
-    let mut height: i16 = 17;
+    let mut width: i16 = 4;
+    let mut height: i16 = 7;
     let mut x: i16 = 4;
     let mut y: i16 = 1;
     let mut x_distance: i16 = 1;
@@ -54,12 +54,12 @@ fn main() {
         new_line = "".to_string();
         x = 1;
         let mut y_distance: i16 = y_middle - (y - y_middle).abs();
-        if(y_is_even && y >= y_middle) {
+        if(y_is_even && y > y_middle) {
             y_distance += 1
         }
         while x <= width {
             let mut x_distance: i16 = x_middle - (x - x_middle).abs();
-            if(x_is_even && x >= x_middle) {
+            if(x_is_even && x > x_middle) {
                 x_distance += 1
             }
             if(std::cmp::min(x_distance, y_distance) < 10) {
