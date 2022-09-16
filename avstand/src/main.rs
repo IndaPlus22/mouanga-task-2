@@ -1,11 +1,12 @@
 /*
  *      Solution to Inda+22 Task 2
  *      By: Anders Mouanga (mouanga@kth.se)
- *
+ *      Kattis I/O functionality based on:       Code from "Summera tal" solution
+ *                                     and       https://kth.kattis.com/help/rust
 */
 
-// Distance is equal to lower value of absolute value of (x - W/2) and (y - H/2)
-use std::io;
+
+use std::io::{self, BufRead};
 use std::iter;
 use std::cmp;
 
@@ -24,6 +25,21 @@ fn main() {
     let mut y_is_even: bool = false;
     let mut Distance: i16 = 0;
 
+
+
+let input = io::stdin();
+for line in input.lock().lines().map(|l| l.unwrap()) {
+    let mut Size: Vec<i16> = line.split_whitespace()
+        .map(|num| num.parse()
+        .unwrap())
+        .collect();
+
+    // Reset the variables
+    width = Size[0];
+    height = Size[1];
+    x = 1;
+    y = 1;
+    
     if let 0 = width % 2 {
         // width is even!
         x_middle = width / 2;
@@ -45,11 +61,8 @@ fn main() {
     }
 
 
-    
 
-    // println!("{}", "1".repeat(x as usize));
-
-
+    // drawing the board!
     while y <= height {
         new_line = "".to_string();
         x = 1;
@@ -83,7 +96,7 @@ fn main() {
 
 
 
-
+}
 
 
 
