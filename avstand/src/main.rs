@@ -35,8 +35,8 @@ for line in input.lock().lines().map(|l| l.unwrap()) {
         .collect();
 
     // Reset the variables
-    width = Size[0];
-    height = Size[1];
+    width = Size[1];
+    height = Size[0];
     x = 1;
     y = 1;
     
